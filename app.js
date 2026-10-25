@@ -53,8 +53,8 @@ function show(card, scroll = false) {
   }
   for (const a of article.querySelectorAll('a[href]')) {
     const target = a.getAttribute('href');
-    if (target.startsWith('card:')) {
-      const id = target.slice(5); a.href = '#'+encodeURIComponent(id);
+    if (target.startsWith('#card:')) {
+      const id = target.slice(6); a.href = '#'+encodeURIComponent(id);
       a.addEventListener('click', e => {
         e.preventDefault(); const linked=cards.find(c=>c.id===id); if (!linked) return;
         selected.add(linked.folder); $('search').value=''; renderFolders(); filter(id); window.scrollTo({top:0});
